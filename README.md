@@ -35,3 +35,7 @@
 
 📊 Test Sonuçları (Postman Runner)
 ✅ Aşağıdaki görsellerde, tüm koleksiyonun tek seferde (Batch Run) hatasız bir şekilde çalıştığı ve tüm senaryoların başarıyla geçtiği (PASSED) görülmektedir.
+
+
+
+
