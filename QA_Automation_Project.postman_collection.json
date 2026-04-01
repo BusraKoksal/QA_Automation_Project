@@ -1,0 +1,117 @@
+{
+  "info": {
+    "_postman_id": "71a189df-add6-4f18-861a-e9ba3170cadf",
+    "name": "QA_Automation_Project",
+    "description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53666124",
+    "_collection_link": "https://go.postman.co/collection/53666124-71a189df-add6-4f18-861a-e9ba3170cadf?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Get_Post_Detail",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "// 1. Kontrol: Sayfa başarılı açıldı mı? (Durum kodu 200 mü?)\r",
+              "pm.test(\"Status code is 200 - Başarılı\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "// 2. Kontrol: Gelen veri doğru mu? (ID 1 mi gelmiş?)\r",
+              "pm.test(\"ID kontrolü: Gelen veri 1 olmalı\", function () {\r",
+              "    var jsonData = pm.response.json();\r",
+              "    pm.expect(jsonData.id).to.eql(1);\r",
+              "});\r",
+              "// 3. Kontrol: Cevap içeriğinde 'title' diye bir alan var mı?\r",
+              "pm.test(\"Title alanı mevcut mu?\", function () {\r",
+              "    pm.expect(pm.response.text()).to.include(\"title\");\r",
+              "});\r",
+              "// 4. Kontrol: Hız testi (Cevap 500ms'den kısa sürmeli)\r",
+              "pm.test(\"Response time is less than 500ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://jsonplaceholder.typicode.com/posts/1",
+          "protocol": "https",
+          "host": [
+            "jsonplaceholder",
+            "typicode",
+            "com"
+          ],
+          "path": [
+            "posts",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get_Random_cat",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"kedi verisi başarıyla geldi\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "pm.test(\"gelen veride resim linki var\", function () {\r",
+              "    var jsonData = pm.response.json();\r",
+              "    //gelen veri liste olduğu için ilk elaemana bakalım\r",
+              "    pm.expect(jsonData[0].url).to.include(\"http\");\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://api.thecatapi.com/v1/images/search",
+          "protocol": "https",
+          "host": [
+            "api",
+            "thecatapi",
+            "com"
+          ],
+          "path": [
+            "v1",
+            "images",
+            "search"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
