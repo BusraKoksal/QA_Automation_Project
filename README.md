@@ -21,7 +21,7 @@ Test süreçlerinde iki farklı API yapısı üzerinden farklı senaryolar kurgu
 Adım Adım Uygulanan Test Senaryoları
 Her bir istek (Request) için özelleştirilmiş JavaScript tabanlı otomasyon scriptleri yazılmıştır:
 
-1️⃣ HTTP Status Code & Metot Kontrolü
+1- HTTP Status Code & Metot Kontrolü:
 Her işlemin doğasına uygun yanıt kodu dönüp dönmediği doğrulanmıştır.
 
 JavaScript
@@ -29,10 +29,10 @@ pm.test("İşlem Başarılı: Status Code Kontrolü", function () {
     pm.expect(pm.response.code).to.be.oneOf([200, 201]);
 });
 
-2️⃣ Veri Bütünlüğü ve Şema Doğrulama (Data Integrity)
+2- Veri Bütünlüğü ve Şema Doğrulama (Data Integrity): 
 Gelen yanıtın beklenen anahtarları (id, title, body, userId) içerip içermediği ve veri tiplerinin doğruluğu Assertion metotları ile denetlenmiştir. Özellikle PUT işleminden sonra verinin gerçekten güncellendiği teyit edilmiştir.
 
-3️⃣ Performans (Response Time) Testi
+3- Performans (Response Time) Testi:
 Yüksek ölçekli sistemlerde servis hızı kritiktir. Tüm isteklerin 500ms altında yanıt vermesi bir kabul kriteri olarak belirlenmiş ve test edilmiştir.
 
 JavaScript
