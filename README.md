@@ -4,7 +4,7 @@ Bu proje, modern yazılım test metodolojilerini uygulamak ve backend servisleri
 🛠 Kullanılan Servisler ve Senaryolar
 Test süreçlerinde iki farklı API yapısı üzerinden farklı senaryolar kurgulanmıştır:
 
-1. 🎯 --JSONPlaceholder (Blog Yönetim Sistemi)--
+🎯 --JSONPlaceholder (Blog Yönetim Sistemi)--
     Amacı: Bir içerik yönetim sisteminin backend yapısını test etmek.
     Kullanılan Endpoint: https://jsonplaceholder.typicode.com/posts/1
     Bu sistemin backend operasyonlarını simüle etmek amacıyla Full CRUD Lifecycle uygulanmıştır:
@@ -13,12 +13,12 @@ Test süreçlerinde iki farklı API yapısı üzerinden farklı senaryolar kurgu
        PUT: Mevcut veriyi güncelleyerek sistemin tutarlılığını test etme.
        DELETE: Test verilerini temizleme ve başarılı silme onayı.
 
-2. 🎯 --The Cat API (Dinamik Medya Servisi)--
+🎯 --The Cat API (Dinamik Medya Servisi)--
     Amacı: Dinamik veri dönen (rastgele resim) servislerin doğrulanması.
     Kullanılan Endpoint: https://api.thecatapi.com/v1/images/search
     Test Edilen Veri: Gelen JSON verisinin liste formatında olup olmadığı ve geçerli bir resim URL'i içerip içermediği.
 
-🧪 Adım Adım Uygulanan Test Senaryoları
+Adım Adım Uygulanan Test Senaryoları
 Her bir istek (Request) için özelleştirilmiş JavaScript tabanlı otomasyon scriptleri yazılmıştır:
 
 1️⃣ HTTP Status Code & Metot Kontrolü
@@ -48,7 +48,7 @@ Bu projenin hazırlık aşamaları ve API test otomasyonunun teknik detayları h
 👉 Medium: Backend'in Kalp Atışlarını Dinlemek: Postman ile API Test Süreçleri
 
 📊 Test Sonuçları (Postman Runner)
-✅ Aşağıdaki görselde, tüm CRUD operasyonlarının ve dinamik servis testlerinin tek seferde (Batch Run) hatasız çalıştığı ve tüm senaryoların başarıyla geçtiği (PASSED) görülmektedir.
+Aşağıdaki görselde, tüm CRUD operasyonlarının ve dinamik servis testlerinin tek seferde (Batch Run) hatasız çalıştığı ve tüm senaryoların başarıyla geçtiği (PASSED) görülmektedir.
 
 ![Test Sonuçları](test-result.png)
 
